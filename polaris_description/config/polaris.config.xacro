@@ -6,4 +6,43 @@
 
     <xacro:ndi_sensor name="polaris"/>
 
+    <link name="camera">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 0.3" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="fus_tracker">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 0.1" />
+            </geometry>
+        </visual>
+    </link>
+    <link name="needle">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="0.1 0.1 0.1" />
+            </geometry>
+        </visual>
+    </link>
+
+
+    <joint name="camera_fus_tracker" type="floating">
+        <parent link="camera"/>
+        <child link="fus_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="camera_needle" type="floating">
+        <parent link="camera"/>
+        <child link="needle"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    
+
 </robot>
